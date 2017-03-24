@@ -311,9 +311,96 @@ Die Methoden <i>Speed</i>, <i>Turn</i> und <i>randomChance</i> werden in der Met
 <a id="Code-Zusammenfassung Die Creature-Klasse"> 2.2.1 Code-Zusammenfassung</a>
 </h4>
 
+```javascript
+public class Creature extends Actor
+{
+    private int ants = 0;
+    private int SPEED;
+    private int TURN;
+    private int ChromaticSign = Greenfoot.getRandomNumber(2);
+    private int Rotation = Greenfoot.getRandomNumber(30);
+    
+    public int Speed()
+    {
+        return SPEED = Greenfoot.getRandomNumber(4) + 1;
+    }
+    
+    public void searchForFood()
+    {
+        move(Speed());
+        if (randomChance(50))
+        {
+            if (ChromaticSign == 0)
+                turn(TurnAround());
+                ChromaticSign = Greenfoot.getRandomNumber(2);
+            if (ChromaticSign == 1)
+                turn(-TurnAround());
+                ChromaticSign = Greenfoot.getRandomNumber(2);
+        }
+    }
+    
+    public boolean randomChance(int chance)
+    {
+        if (Greenfoot.getRandomNumber(100) < chance)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    private int TurnAround()
+    {
+        return TURN = Greenfoot.getRandomNumber(20) + 30;
+    }
+}
+```
+
 <h3>
 <a id= "Die Ants-Klasse"> 2.3 Die Ants-Klasse</a>
 </h3>
+
+<p>
+Die <i>Ant</i>-Klasse ist eine Unterklasse von <i>Creature</i>. In dieser Klasse beschreiben wir das Verhalten der Ameisen und greifen dabei auf Methoden aus der <i>Creature</i>-Klasse zurück. Die Ameisen müssen in der Lage sein, zu erkennen, dass sie auf Futter gestoßen sind. Deshalb haben wir die Methode <i>checkForFood()</i> aufgestellt, die durch boolesche Rückgabetypen signaliert, dass sie mit einem Objekt der Futter-Klassse kollidiert ist. Hierfür verwenden wir die Methode <i>getOneIntersectingObject</i>, der wir als Parameter die <i>Food</i>-Klasse zuordnen. Den Rückgabetyp dieser Methode legen wir als <i>getFood</i> fest, welcher zurückgegeben wird, wenn es zu einer Kollision gekommen ist. Wird diser Rückgabetyp zurückgegeben, ist er also nicht mehr <i>null</i>, so werden durch eine if-Methode die Methoden <i>takeCrumbs(getFood)</i> und <i>getHome</i> ausgeführt, sowie der Ausdruck <i>true</i> als Rückgabetyp festgelegt. Ist <i>getFood</i> gleich <i>null</i>, so wird durch eine else-Anweisung <i>false</i> zurückgegeben.
+</p>
+
+```javascript
+public boolean checkForFood()
+{
+    Food getFood = (Food) getOneIntersectingObject(Food.class);
+    if (getFood != null)
+    {
+        takeCrumbs(getFood);
+        getHome();
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+```
+
+<p>
+Die Methode <i>takeCrumbs(Food getFood)</i>, die von <i>getFood</i> abgerugen werden kann, ist in Lage eine Methode names <i>takeSomeCrumbs</i> aus der <i>Food</i>-Klasse abzurufen. Gleichzeitig wird das Bild der Objekte "ant.gif" durch die Bilddatei "ant-with-food.gif" ersetzt, sodass alle Ameisen, die mit einem Objekt der <i>Food</i>-Klasse kollidiert sind. Auf diese Weise werden diejenigen Ameisen gekennzeichnet, die auf Futter gestoßen sind. 
+</p>
+
+```javascript
+private void takeCrumbs(Food getFood)
+{
+    getFood.takeSomeCrumbs();
+    setImage("ant-with-food.gif");
+}
+```
+
+<p>
+Um herrauszufinden, wie die Ameisen wieder nach Hause in ihren Ameisenhügel kommen können, müssen die Ameisen ihre aktuelle Position kennen und wissen, in welche Richtung sie sich bewegen müssen, um nachhause zu kommen, damit sie das gefundene Futter ablegen können. Hierfür haben wir eine Methode namens <i>getHome</i> erstellt, die keinen Rückgabetypen besitzt (<i>void</i>). Diese Methode berechnet den Koordiantenunterschied, den die einzelnen Ameisen aufweisen, wenn sie sich vom Ameisenhügel entfernen. Dabei werden die Ortskoordinaten des Hügels (320, 320) von den aktuellen Koordinaten subtrahiert, wodurch wir den Koordinatenunterschied erhalten.
+Diese Unterschiede speichern wir in den Variablen <i>deltaX</i> und <i>deltaY</i>. Ist dieser Uterschied ungleich 0, so richten sich die Ameisen in Richtung des Ameisenhügels aus (320, 320). Betrachtet man die Strecken in x- und y-Richtung, die sich ergeben wenn diese die Abstände zwischen Ameise und Ameisenhügel in beiden Koordinatenachsen darstellen, so ergeben diese zwei senkrecht zueinander ausgerichtete Vektoren. Der Winkel zwischen diesen beiden Vektoren lässt sich mithilfe des Tangens berchnen.
+</p>
+
+
 
 <p><img src="images/ant.gif" alt="ant"></p>
 
