@@ -49,7 +49,8 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
 </p>
 
 <p>
-Im Folgenden werden wir erläutern schrittweise, wie wir beim Erstellen der Simulation vorgegangen sind. Es macht Sinn, sich in der angegeben Reihenfolge mit dem Dokument zu beschäftigen, um unsere Gedankengänge nachzuvollziehen. Da es wenig Sinn macht, jede Methode in allen Einzelheiten zu definieren, erklären wir in einer Tabelle die vorgefertigten Grundmethoden von <i>Greenfoot</i>, die wir zur Programmierung der Simulation verwendet haben. Aus diesen Grundmethoden setzt sich unser Programmier-Code zusammen deren Funktion wir als Grundwissen vorraussetzen.
+Dieses Projekt beruht auf dem Kapitel 9.2 aus dem Buch <a href="https://www.greenfoot.org/book/">"Einführung in Java mit Greenfoot"</a>
+von Michael Kölling. In diesen Kapitel geht es um das Programmieren von Simulationen. Hierfür ist ein unvollständiges namens <i>ants</i> Szenario vorgegeben, das man durch eigene Idee ergänzen soll, um die Simulation fertigzustellen. Wir haben bei der Bearbeitung des Projektes dieses Szenario als Basis für unsere Simulation verwendet. Dabei haben wir die Klasse <i>AntHill</i> übernommen, da es keinen Sinn macht, sie erneut zu programmieren. Im Folgenden werden wir erläutern schrittweise, wie wir beim Erstellen der Simulation vorgegangen sind. Es macht Sinn, sich in der angegeben Reihenfolge mit dem Dokument zu beschäftigen, um unsere Gedankengänge nachzuvollziehen. Da es wenig Sinn macht, jede Methode in allen Einzelheiten zu definieren, erklären wir in einer Tabelle die vorgefertigten Grundmethoden von <i>Greenfoot</i>, die wir zur Programmierung der Simulation verwendet haben. Aus diesen Grundmethoden setzt sich unser Programmier-Code zusammen deren Funktion wir als Grundwissen vorraussetzen.
 </p>
 
 <p><img src="images/Screenshot (2).png" alt="Screenshot2"></p>
