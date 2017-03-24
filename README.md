@@ -334,6 +334,10 @@ Die Methoden <i>Speed</i>, <i>Turn</i> und <i>randomChance</i> werden in der Met
 <a id="Code-Zusammenfassung Die Creature-Klasse"> 2.2.1 Code-Zusammenfassung</a>
 </h4>
 
+<p><img src="images/ant.gif" alt="ant"></p>
+
+<p><img src="images/ant-with-food.gif" alt="Ant with food"></p>
+
 ```javascript
 public class Creature extends Actor
 {
@@ -480,10 +484,6 @@ public void act()
     }
 }
 ```
-
-<p><img src="images/ant.gif" alt="ant"></p>
-
-<p><img src="images/ant-with-food.gif" alt="Ant with food"></p>
 
 <h4>
 <a id="Code-Zusammenfassung Die Ants-Klasse"> 2.3.1 Code-Zusammenfassung</a>
