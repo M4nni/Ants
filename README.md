@@ -12,7 +12,7 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
     <li><a href= "#Einleitung"> 1. Einleitung: Anforderungen und Elemente des Spiels</a></li>
         <ul>
         <li><a href= "#Das Spiel und die Dokumentation"> 1.1 Das Spiel und die Dokumentation</a></li>
-        <li><a href= "#Syntax und Funktionsweise von Java"> 1.2 Syntax und Funktionsweise von Java</a></li>
+        <li><a id="Syntax und Funktionsweise von Java"> 1.2 Syntax und Funktionsweise von Java</a></li>
         </ul>
     <li><a href= "#Umsetzung"> 2. Umsetzung</a></li>
         <ul>
@@ -61,7 +61,7 @@ In den folgenden Ausführungen werden wir schrittweise beschreiben, wie wir bei 
 </p>
 
 <h3>
-<a id="Syxtax und Funktionsweise von Java"> 1.2 Syntax und Funktionsweise von Java</a>
+<a id="Syntax und Funktionsweise von Java"> 1.2 Syntax und Funktionsweise von Java</a>
 </h3>
 
 <p>
@@ -207,9 +207,7 @@ Wir programmieren unser Projekt "<i>Ants</i>" in der Programmierumgebung "Greenf
 <a id= "Erstellen einer Welt"> 2.1.1 Erstellen einer Welt</a>
 </h4>
 
-Mit dem Konstruktor <i>public</i> erstellen wir eine Welt-Klasse namens AntWorld und durch die Methode <i>import greenfoot.*; </i> geben wir an, dass diese Klasse in das Szenario implementiert werden soll. Fehlt diese Methode oder wird sie verändert, so würde diese Klasse beim Start des Programmes nicht geladen werden. Hinter jeder Klasse stehen mindestens eine geöffnete und eine geschlossene Klammer, die zusätzliche Parameter enthalten können. Die Referenz <i>super</i> sorgt dafür, dass alle Eigenschaften der Super- oder Hauptklasse auf alle anderen Klassen übertragen werden. In diesem Fall ist die Super-Klasse die generierte Welt. Diese Anweisung benötigt weitere Parameter für ihre Funktionalität und zwar die Auflösung der generierten Welt und das Verhältnis zwischen Pixeln und Zellen des Zellen-Koordinatensystems, das deckungsgleich zur generierten Welt erstellt wird. Wir wollen dieses Verhältnis auf 1:1 festlegen, sodass eine Zelle einem Pixel entspricht. Um diese Parameter dem Konstruktor zur Verfügung zu stellen, schreiben wir nach super in Klammern (640, 640, 1, true). Der erste Parameter definiert die Anzahl der Pixel entlang der x-Achse, der zweite nach dem Komma die Pixelanzahl in y-Richtung und der dritte Parameter "1" sagt aus, dass eine Zelle die Größe von einem Pixel in x- und y- Richtung besitzt. Das Größenverhältnis zwischen Zellen und Pixeln beträgt also 1:1. Wir haben aber nicht die Koordinaten 640 benutzt, sondern eine feste Größe der Welt durch die Variable <i>WORLDSIZE</i> auf 640 festgelegt, die wir später weiter verwendet haben. Durch den Parameter <i>true</i> erreichen wir, dass die Asteroiden und auch die Rakete zunächst nicht aus der Welt verschwinden können, da die Grenzen der Welt für sie eine Barriere darstellen.
-In dieser Zeile steht ein Semikolon, das verschiedene Methoden voneinander trennt. 
-Ein Hintergrund der Welt war durch das Herunterladen von Greenfoot Ants Project auf der Greenfoot Website schon vorgegeben und passt zum Ameisen-Szenario, sodass wir diesen nicht verändern mussten. Durch die Methode <i>setPaintOrder</i> können wir die Farbgebungsaufträge der Welt und der Ants Klasse aufnehmen. Die Reihenfolge der Parameter legt fest, welche Objekte in der Welt bei Überschneidung in den Hinergrund rücken. In unserem Fall rückt die AntHill-Klasse in den Hintergrund der Ant-Klasse. Außerdem wird hier eine von uns erstllte Methode <i>scenario1()</i> aufgerufen.
+Mit dem Konstruktor <i>public</i> erstellen wir eine Welt-Klasse namens AntWorld und durch die Methode <i>import greenfoot.*; </i> geben wir an, dass diese Klasse in das Szenario implementiert werden soll. Fehlt diese Methode oder wird sie verändert, so würde diese Klasse beim Start des Programmes nicht geladen werden. Hinter jeder Klasse stehen mindestens eine geöffnete und eine geschlossene Klammer, die zusätzliche Parameter enthalten können. Die Referenz <i>super</i> sorgt dafür, dass alle Eigenschaften der Super- oder Hauptklasse auf alle anderen Klassen übertragen werden. In diesem Fall ist die Super-Klasse die generierte Welt. Diese Anweisung benötigt weitere Parameter für ihre Funktionalität und zwar die Auflösung der generierten Welt und das Verhältnis zwischen Pixeln und Zellen des Zellen-Koordinatensystems, das deckungsgleich zur generierten Welt erstellt wird. Wir wollen dieses Verhältnis auf 1:1 festlegen, sodass eine Zelle einem Pixel entspricht. Um diese Parameter dem Konstruktor zur Verfügung zu stellen, schreiben wir nach super in Klammern (640, 640, 1, true). Der erste Parameter definiert die Anzahl der Pixel entlang der x-Achse, der zweite nach dem Komma die Pixelanzahl in y-Richtung und der dritte Parameter "1" sagt aus, dass eine Zelle die Größe von einem Pixel in x- und y- Richtung besitzt. Das Größenverhältnis zwischen Zellen und Pixeln beträgt also 1:1. Wir haben aber nicht die Koordinaten 640 benutzt, sondern eine feste Größe der Welt durch die Variable <i>WORLDSIZE</i> auf 640 festgelegt, die wir später weiter verwendet haben. Durch den Parameter <i>true</i> erreichen wir, dass die Asteroiden und auch die Rakete zunächst nicht aus der Welt verschwinden können, da die Grenzen der Welt für sie eine Barriere darstellen. In dieser Zeile steht ein Semikolon, das verschiedene Methoden voneinander trennt. Ein Hintergrund der Welt war durch das Herunterladen von Greenfoot Ants Project auf der Greenfoot Website schon vorgegeben und passt zum Ameisen-Szenario, sodass wir diesen nicht verändern mussten. Durch die Methode <i>setPaintOrder</i> können wir die Farbgebungsaufträge der Welt und der Ants Klasse aufnehmen. Die Reihenfolge der Parameter legt fest, welche Objekte in der Welt bei Überschneidung in den Hinergrund rücken. In unserem Fall rückt die AntHill-Klasse in den Hintergrund der Ant-Klasse. Außerdem wird hier eine von uns erstllte Methode <i>scenario1()</i> aufgerufen.
 
 ```javascript
 
@@ -301,7 +299,7 @@ public int Speed()
 ```
 
 <p>
-Eine weitere Methode <i>TurnAround()</i> gibt mithilfe einer weiteren <i>Greenfoot.getRandomNumber()</i>-Methode eine Variable names <i>TURN</i> zurück, die durch die Addition von 30 Wert zwischen 30 und 49 zurückgeben kann.
+Eine weitere Methode <i>TurnAround()</i> gibt mithilfe einer weiteren <i>Greenfoot.getRandomNumber()</i>-Methode eine Variable namens <i>TURN</i> zurück, die durch die Addition von 30 Werte zwischen 30 und 49 zurückgeben kann.
 </p>
 
 ```javascript
@@ -329,7 +327,7 @@ public boolean randomChance(int chance)
 ```
 
 <p>
-Die Methoden <i>Speed</i>, <i>Turn</i> und <i>randomChance</i> werden in der Methode <i>searchForFood()</i> benötigt, um eine zufällige Fortbewegung zu simulieren. Die Ameisen "suchen" ohne Aufschluss über den Aufenthaltsort des Futters zu haben zufällig das Szenario. Deshalb haben wir diese Methode <i>searchForFood()</i> genannt. Damit die Ameisen eine Geschwindigkeit aufweisen, haben wir die Variable <i>SPEED</i> der Methode <i>Speed</i> in eine <i>move()</i>-Methode eingesetzt. Die Ameisen sollen mit einer Chance von 50% ihre Ausrichung verändern und sich damit in eine zufällige Richtung bewegen. Dazu haben wir eine if-Methode erstellt, deren Bedingung erfüllt ist, wenn die Methode <i>randomChance</i> mit dem Parameter chance = 50 ist. Es besteht also eine 50%-ige Chance, dass der Parameter <i>true</i> zurückgeben wird und damit die Bedingung erfüllt ist. Innerhalb der if-Methode haben wir zwei weitere if-Methoden definiert. Ihre Bedingungen sind jeweils die beiden Zustände, die die Variable <i>ChromaticSign</i> annhemen kann. Die inneren if-Methoden setzen jeweils die Variable <i>TURN</i> der Methode <i>TurnAround</i> in eine <i>turn</i>-Methode ein, sodass sich die Ameisen  zufällig um die eingene Achse drehen können. Die beiden if-Methoden unterscheiden sich lediglich duch die beiden Zustände von <i>ChromaticSign</i>, welche bewirken, dass eine Ausrichung gegen und mit dem Uhrzeigersinn möglich ist, da sich das Vorzeichen der beiden if-Methoden  vor <i>TurnAround</i> unterscheidet. Ist eine der inneren if-Methoden ausgeführt worden, muss <i>ChromaticSign</i> neu festgelegt werden, weil sie sonst nur einmalig festgelegt wird, was durch die zusetzliche Zeile <i>ChromaticSign = Greenfoot.getRandomNumber(2)</i> erreicht wird. Zusammengefasst wird durch <i>randomChance(50)</i> ein zufälliger Richutungswechsel definiert, der durch die Variable <i>ChromaticSign</i> nach rechts und links möglich ist.
+Die Methoden <i>Speed</i>, <i>Turn</i> und <i>randomChance</i> werden in der Methode <i>searchForFood</i> benötigt, um eine zufällige Fortbewegung zu simulieren. Die Ameisen "suchen", ohne Aufschluss über den Aufenthaltsort des Futters zu haben, zufällig das Szenario. Deshalb haben wir diese Methode <i>searchForFood()</i> genannt. Damit die Ameisen eine Geschwindigkeit aufweisen, haben wir die Variable <i>SPEED</i> der Methode <i>Speed</i> in eine <i>move()</i>-Methode eingesetzt. Die Ameisen sollen mit einer Chance von 50% ihre Ausrichung verändern und sich damit in eine zufällige Richtung bewegen. Dazu haben wir eine if-Methode erstellt, deren Bedingung erfüllt ist, wenn die Methode <i>randomChance</i> mit dem Parameter chance = 50 ist. Es besteht also eine 50%-ige Chance, dass der Parameter <i>true</i> zurückgeben wird und damit die Bedingung erfüllt ist. Innerhalb der if-Methode haben wir zwei weitere if-Methoden definiert. Ihre Bedingungen sind jeweils die beiden Zustände, die die Variable <i>ChromaticSign</i> annhemen kann. Die inneren if-Methoden setzen jeweils die Variable <i>TURN</i> der Methode <i>TurnAround</i> in eine <i>turn</i>-Methode ein, sodass sich die Ameisen  zufällig um die eingene Achse drehen können. Die beiden if-Methoden unterscheiden sich lediglich duch die beiden Zustände von <i>ChromaticSign</i>, welche bewirken, dass eine Ausrichung gegen und mit dem Uhrzeigersinn möglich ist, da sich das Vorzeichen der beiden if-Methoden  vor <i>TurnAround</i> unterscheidet. Ist eine der inneren if-Methoden ausgeführt worden, muss <i>ChromaticSign</i> neu festgelegt werden, weil sie sonst nur einmalig festgelegt wird, was durch die zusetzliche Zeile <i>ChromaticSign = Greenfoot.getRandomNumber(2)</i> erreicht wird. Zusammengefasst wird durch <i>randomChance(50)</i> ein zufälliger Richutungswechsel definiert, der durch die Variable <i>ChromaticSign</i> nach rechts und links möglich ist.
 </p>
 
 <h4>
@@ -491,6 +489,112 @@ public void act()
 <a id="Code-Zusammenfassung Die Ants-Klasse"> 2.3.1 Code-Zusammenfassung</a>
 </h4>
 
+```javascript
+private int xCoordinate;
+    private int yCoordinate;
+    private int currentX;
+    private int currentY;
+    private int deltaX;
+    private int deltaY;
+
+    private double Angle;
+    private int anlge;
+
+    private int i;
+    private boolean foundFood = false;
+    
+    public Ant()
+    {
+        getHomeLocationX();
+        getHomeLocationY();
+    }
+    
+    public void act()
+    {
+        if (foundFood == false)
+        {
+            searchForFood();
+        }
+        if (checkForFood() || foundFood == true)
+        {
+            getHome();
+        }
+        if (atHome())
+        {
+            foundFood = false;
+            setImage("ant.gif");
+            searchForFood();
+        }
+    }
+    
+    public boolean checkForFood()
+    {
+        Food getFood = (Food) getOneIntersectingObject(Food.class);
+        if (getFood != null)
+        {
+            takeCrumbs(getFood);
+            getHome();
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    
+    private void takeCrumbs(Food getFood)
+    {
+        getFood.takeSomeCrumbs();
+        setImage("ant-with-food.gif");
+    }
+    
+    private int getHomeLocationX()
+    {
+        if (i == 1)
+        {
+            xCoordinate = getX() + 0;
+            i = i + 1;
+        }
+        return 320;
+    }
+    
+    private int getHomeLocationY()
+    {
+        if (i == 1)
+        {
+            yCoordinate = getY() + 0;
+            i = i + 1;
+        }
+        return 320;
+    }
+    
+    public void getHome()
+    {
+        deltaX = getX() - getHomeLocationX();
+        deltaY = getY() - getHomeLocationY() ;
+        foundFood = true;
+        if (deltaX != 0 || deltaY != 0)
+        {
+            Angle = Math.atan2(-deltaY, -deltaX) * (180 / Math.PI);
+            int angle = (int)Angle;
+            setRotation(angle);
+        }
+        move(Speed());
+    }
+    
+    public boolean atHome()
+    {
+        if (getX() == 320 && getY() == 320)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+```
+
 <h3>
 <a id= "Die AntHill-Klasse"> 2.4 Die AntHill-Klasse</a>
 </h3>
@@ -561,13 +665,13 @@ Donnerstag, den 02.03.2017:
 </h4>
 
 Zu Beginn haben wir erst einmal das Projekt Greenfoot Ants Project von der Greenfoot Website heruntergeladen.
-Die übrige Zeit haben wir genutzt, um zunächst das Projekt zu verstehen: Die Ameisen spawnen immer nur aus zwei bestimmten Ameisenhaufen, die sich immer an den gleichen Stellen befinden. Sie bewegen sich auf der Suche nach Futter zufällig und können rotieren. Wenn sie Futter gefunden haben, sollen sie ein paar Krümel essen, die Farbe verändern und auf dem Weg zu ihrem Zuhause, dem Ameisenhügel, Pheromone ausstoßen, die andere Ameisen wahrnehmen und den Pheromonen schließlich folgen. Dies hörte sich erst einmal ziemlich kompliziert an. Wir versuchten, erst einmal die Welt-Klasse Antworld zu verstehen und haben zusätzlich zu zwei Ameisenhaufen noch 10 Plätze für das Futter auf verschiedenen Punkten der Welt hinzugefügt.
+Die übrige Zeit haben wir genutzt, um zunächst das Projekt zu verstehen: Die Ameisen sollen auf einem Ameisenhaufen spawnen, der sich immer an den gleichen Stellen befindet. Sie bewegen sich auf der Suche nach Futter zufällig und können rotieren. Wenn sie Futter gefunden haben, sollen sie ein paar Krümel essen, die Farbe verändern und auf dem Weg zu ihrem Zuhause, dem Ameisenhügel, Pheromone ausstoßen, die andere Ameisen wahrnehmen und den Pheromonen schließlich folgen. Dies hörte sich erst einmal ziemlich kompliziert an. Wir versuchten, erst einmal die Welt-Klasse Antworld zu verstehen und haben zusätzlich zu zwei Ameisenhaufen noch 10 Plätze für das Futter auf verschiedenen Punkten der Welt hinzugefügt.
 
 <h4>
 Mittwoch, den 08.03.2017:
 </h4>
 
-Am Mittwoch haben wir uns mit der recht komplizierten Creature Klasse vertraut gemacht und angefangen, den Code zu vereinfachen bzw. so umzuschreiben, dass er einfacher und verständlicher wird.
+Am Mittwoch haben wir uns mit den Anforderungen der Creature-Klasse vertraut gemacht und angefangen diese zu programmieren
 
 <h4>
 Donnerstag, den 09.03.2017:
@@ -579,7 +683,7 @@ Wir haben das Programmieren der Creature Klasse abgeschlossen und angefangen, di
 Samstag, den 11.03.2017:
 </h4>
 
-Nachdem wir mit der Creature und der Ant Klasse schon zwei Klassen zuende programmiert hatten, haben wir begonnen, die Dokumentation anzufertigen. Dazu haben wir in Github ein neues repository erstellt und zunächst ein Inhaltsverzeichnis mit den wichtigen Punkten angefertigt. Anschließend haben wir eine Einleitung geschrieben, die das Ants Projekt darstellt, und die Syntax und Funktionsweise von Java genauer erklärt. Auch die Welt als Klasse mit ihren Befehlen haben wir erklärt.
+Nachdem wir mit der Creature und der Ant Klasse schon zwei Klassen zuende programmiert hatten und deren Funktion optimierten, haben wir begonnen, die Dokumentation anzufertigen. Dazu haben wir in Github ein neues repository erstellt und zunächst ein Inhaltsverzeichnis mit den wichtigen Punkten angefertigt. Anschließend haben wir eine Einleitung geschrieben, die das Ants Projekt darstellt, und die Syntax und Funktionsweise von Java genauer erklärt. Auch die Welt als Klasse mit ihren Befehlen haben wir erklärt.
 
 <h4>
 Dienstag, den 14.03.2017:
