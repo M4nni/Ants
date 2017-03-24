@@ -422,8 +422,66 @@ private void takeCrumbs(Food getFood)
 
 <p>
 Um herrauszufinden, wie die Ameisen wieder nach Hause in ihren Ameisenhügel kommen können, müssen die Ameisen ihre aktuelle Position kennen und wissen, in welche Richtung sie sich bewegen müssen, um nachhause zu kommen, damit sie das gefundene Futter ablegen können. Hierfür haben wir eine Methode namens <i>getHome</i> erstellt, die keinen Rückgabetypen besitzt (<i>void</i>). Diese Methode berechnet den Koordiantenunterschied, den die einzelnen Ameisen aufweisen, wenn sie sich vom Ameisenhügel entfernen. Dabei werden die Ortskoordinaten des Hügels (320, 320) von den aktuellen Koordinaten subtrahiert, wodurch wir den Koordinatenunterschied erhalten.
-Diese Unterschiede speichern wir in den Variablen <i>deltaX</i> und <i>deltaY</i>. Ist dieser Uterschied ungleich 0, so richten sich die Ameisen in Richtung des Ameisenhügels aus (320, 320). Betrachtet man die Strecken in x- und y-Richtung, die sich ergeben wenn diese die Abstände zwischen Ameise und Ameisenhügel in beiden Koordinatenachsen darstellen, so ergeben diese zwei senkrecht zueinander ausgerichtete Vektoren. Der Winkel zwischen diesen beiden Vektoren lässt sich mithilfe des Tangens berechnen. Ist der Winkel bekannt, können sich die Ameisen zum Ameisehügel hin ausrichten und zu diesem zurückkehren.
+Diese Unterschiede speichern wir in den Variablen <i>deltaX</i> und <i>deltaY</i>. Ist dieser Uterschied ungleich 0, so richten sich die Ameisen in Richtung des Ameisenhügels aus (320, 320). Betrachtet man die Strecken in x- und y-Richtung, die sich ergeben wenn diese die Abstände zwischen Ameise und Ameisenhügel in beiden Koordinatenachsen darstellen, so ergeben diese zwei senkrecht zueinander ausgerichtete Vektoren. Der Winkel zwischen diesen beiden Vektoren lässt sich mithilfe des Tangens berechnen. Ist der Winkel bekannt, können sich die Ameisen zum Ameisehügel hin ausrichten und zu diesem zurückkehren. Der Winkel zwischen zwei Vektoren lässt sich mit der Methode <i>atan2</i> berechnen. Die Parameter dieser Methode sind zwei senkrecht zueinander ausgerichtete Vektoren, die durch den Datentyp <i>int</i> dargestellt werden. Der berechnete Winkel wird als <i>double</i>-Rückgabetyp zurückgegeben. Wir haben den Rückgabetyp von <i>atan2</i> der Variablen <i>Angle</i> gleichgesetzt, welche ebenfalls vom Typ <i>double</i> ist. Um sie in einen <i>Integre</i> zu konvertieren setzen wir sie der Variablen <i>angle</i> gleich und legen durch die Referenz (int) fest, dass eine Konvertierung von <i>int</i> nach <i>double</i> stattfinden soll. Der Datentyp <i>double</i> ist im Gegensatz zu <i>int</i> Element der rationalen Zahlen und verfügt in seiner Datenmenge auch Kommazahlen. Kommazahlen vom Typ <i>double</i> lassen sich jedoch nicht von der Methode <i>setRotation</i> umsetzten, die wir verwenden möchten, um die Ameisen in Richtung der Hügel auszurichten. Durch die Konvertierung und anschließendes Einsetzen der Variablen <i>angle</i> in <i>setRotation</i> errreichen wir, dass sich die Ameisen korrekt ausrichten und durch den bereits bekannten Ausdruck <i>move(Speed())</i> bewegen sich die Ameisen auf den Ameisenhügel zu.
 </p>
+
+```javascript
+public void getHome()
+{
+    deltaX = getX() - getHomeLocationX();
+    deltaY = getY() - getHomeLocationY() ;
+    foundFood = true;
+    if (deltaX != 0 || deltaY != 0)
+    {
+        Angle = Math.atan2(-deltaY, -deltaX) * (180 / Math.PI);
+        int angle = (int)Angle;
+        setRotation(angle);
+    }
+    move(Speed());
+}
+```
+
+<p>
+Sind die Ameisen beim Ameisenhügel angekommen wird durch die Methode <i>atHome</i> der Rückgabetyp <i>true</i> zurückgegeben. Dies erreichen wir dadurch, dass wir in einer if-Methode festlegen, dass wenn die aktuellen Koordinaten der Ameisen gleich (320, 320) sind, die Ameisen sich direkt über dem Ameisenhügel befinden, <i>true</i> als Rückgabetyp festgelegt wird.
+</p>
+
+```javascript
+public boolean atHome()
+{
+    if (getX() == 320 && getY() == 320)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+```
+
+<p>
+Wir haben nun alle nötigen Verhaltensweisen der Ameisen definiert. Wir haben jedoch noch nicht festgelegt, in welcher Reihenfolge die Methoden abgerufen werden sollen. Deshalb haben wir innerhalb der <i>act</i>-Methode ein Gefüge aus if-Methoden erstellt, das aufgrund der verschiedenen Bedingungsparameter in Kreis läuft. Dabei suchen die Ameisen solange nach Futter, bis sie auf Futter stoßen. Danach kehren sie zielstrebig zum Ameisenhügel zurück und fangen erst wieder an zu suchen, bis sie diesen erreicht haben.
+</p>
+
+```javascript
+public void act()
+{
+    if (foundFood == false)
+    {
+        searchForFood();
+    }
+    if (checkForFood() || foundFood == true)
+    {
+        getHome();
+    }
+    if (atHome())
+    {
+        foundFood = false;
+        setImage("ant.gif");
+        searchForFood();
+    }
+}
+```
 
 <p><img src="images/ant.gif" alt="ant"></p>
 
@@ -438,6 +496,56 @@ Diese Unterschiede speichern wir in den Variablen <i>deltaX</i> und <i>deltaY</i
 </h3>
 
 <p><img src="images/anthill.png" alt="anthill"></p>
+
+<p>
+Die Klasse <i>Anthill</i> haben direkt aus dem Szenario <i>ants</i> übernommen. In dieser Klasse ist die maximale Anzahl an Ameisen festgelegt, die mit einer 10%-igen Wahrscheinlichkeit an den Ortskoordinaten des Ameisenhügls hinzugefügt werden
+</p>
+
+```javascript
+private int ants = 0;
+    
+    /** Total number of ants in this hill. */
+    private int maxAnts = 40;
+    
+    /** Counter to show how much food have been collected so far. */
+    private Counter foodCounter;
+    
+    public AntHill()
+    {
+    
+    }
+    
+    public AntHill(int numberOfAnts)
+    {
+        maxAnts = numberOfAnts;
+    }
+
+    public void act()
+    {
+        if(ants < maxAnts)
+        {
+            if(Greenfoot.getRandomNumber(100) < 5)
+            {
+                getWorld().addObject(new Ant(), getX(), getY());
+                ants++;
+            }
+        }
+    }
+    
+    public void countFood()
+    {
+        // if we have no food counter yet (first time) -- create it
+        if(foodCounter == null)
+        {
+            foodCounter = new Counter("Food: ");
+            int x = getX();
+            int y = getY() + getImage().getWidth()/2 + 8;
+
+            getWorld().addObject(foodCounter, x, y);
+        }
+        foodCounter.increment();
+    }
+```
 
 <h3>
 <a id= "Die Food-Klasse"> 2.5 Die Food-Klasse</a>
