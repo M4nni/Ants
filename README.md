@@ -531,20 +531,7 @@ private int ants = 0;
             }
         }
     }
-    
-    public void countFood()
-    {
-        // if we have no food counter yet (first time) -- create it
-        if(foodCounter == null)
-        {
-            foodCounter = new Counter("Food: ");
-            int x = getX();
-            int y = getY() + getImage().getWidth()/2 + 8;
 
-            getWorld().addObject(foodCounter, x, y);
-        }
-        foodCounter.increment();
-    }
 ```
 
 <h3>
