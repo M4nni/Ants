@@ -128,12 +128,37 @@ Anweisung
     <td>ruft Methoden ab, die nur in der Weltklasse ausgeführt werden können</td>
     </tr>
     <tr>
+    <tr>
+    <td>int</td>
+    <td>getX</td>
+    <td>(</td>
+    <td></td>
+    <td>)</td>
+    <td>gibt die akutuellen Koordinaten eines x-Klassenobjektes zurück</td>
+    </tr>
+    <tr>
+    <td>int</td>
+    <td>getY</td>
+    <td>(</td>
+    <td></td>
+    <td>)</td>
+    <td>gibt die akutuellen Koordinaten eines y-Klassenobjektes zurück</td>
+    </tr>
+    <tr>
     <td>void</td>
     <td>move</td>
     <td>(</td>
     <td>Ganzzahlige Zahl deren Betrag das Tempo und dessen Vorzeichen die Richtung bestimmt.</td>
     <td>)</td>
     <td>Bewegt, abhängig von ihrem Parameter, ein Objekt einer Klasse entlang seiner Ausrichungsachse</td>
+    </tr>
+    <tr>
+    <td>void</td>
+    <td>move</td>
+    <td>(</td>
+    <td>Ganzzahlige Zahl deren Betrag den Winkel und dessen Vorzeichen die Richtung bestimmt.</td>
+    <td>)</td>
+    <td>Lässt ein Objekt pro Ausführung um den als Parameter angegebenen Winkel rotieren.</td>
     </tr>
     <tr>
     <td>void</td>
@@ -213,26 +238,25 @@ Bisher enthält unsere Welt noch keine Objekte, die agieren können und für uns
 
 import greenfoot.*;
 public void scenario1()
-    {
-        addObject(new AntHill(), WORLDSIZE / 2, WORLDSIZE / 2);
-        addObject(new AntHill(), WORLDSIZE / 4, WORLDSIZE / 4);
-        addObject(new Food(), 200, 200);
-        addObject(new Food(), 50, 50);
-        addObject(new Food(), 300, 50);
-        addObject(new Food(), 500, 200);
-        addObject(new Food(), 300, 275);
-        addObject(new Food(), 300, 350);
-        addObject(new Food(), 350, 400);
-        addObject(new Food(), 150, 400);
-        addObject(new Food(), 400, 550);
-        addObject(new Food(), 550, 500);
-    }
+{
+    addObject(new AntHill(), WORLDSIZE / 2, WORLDSIZE / 2);
+    addObject(new AntHill(), WORLDSIZE / 4, WORLDSIZE / 4);
+    addObject(new Food(), 200, 200);
+    addObject(new Food(), 50, 50);
+    addObject(new Food(), 300, 50);
+    addObject(new Food(), 500, 200);
+    addObject(new Food(), 300, 275);
+    addObject(new Food(), 300, 350);
+    addObject(new Food(), 350, 400);
+    addObject(new Food(), 150, 400);
+    addObject(new Food(), 400, 550);
+    addObject(new Food(), 550, 500);
+}
 ```
 
 <p>
 Zusammengefasst ergibt sich für die World-Klasse:
 </p>
-
 
 ```javascript
 import greenfoot.*;
@@ -398,10 +422,8 @@ private void takeCrumbs(Food getFood)
 
 <p>
 Um herrauszufinden, wie die Ameisen wieder nach Hause in ihren Ameisenhügel kommen können, müssen die Ameisen ihre aktuelle Position kennen und wissen, in welche Richtung sie sich bewegen müssen, um nachhause zu kommen, damit sie das gefundene Futter ablegen können. Hierfür haben wir eine Methode namens <i>getHome</i> erstellt, die keinen Rückgabetypen besitzt (<i>void</i>). Diese Methode berechnet den Koordiantenunterschied, den die einzelnen Ameisen aufweisen, wenn sie sich vom Ameisenhügel entfernen. Dabei werden die Ortskoordinaten des Hügels (320, 320) von den aktuellen Koordinaten subtrahiert, wodurch wir den Koordinatenunterschied erhalten.
-Diese Unterschiede speichern wir in den Variablen <i>deltaX</i> und <i>deltaY</i>. Ist dieser Uterschied ungleich 0, so richten sich die Ameisen in Richtung des Ameisenhügels aus (320, 320). Betrachtet man die Strecken in x- und y-Richtung, die sich ergeben wenn diese die Abstände zwischen Ameise und Ameisenhügel in beiden Koordinatenachsen darstellen, so ergeben diese zwei senkrecht zueinander ausgerichtete Vektoren. Der Winkel zwischen diesen beiden Vektoren lässt sich mithilfe des Tangens berchnen.
+Diese Unterschiede speichern wir in den Variablen <i>deltaX</i> und <i>deltaY</i>. Ist dieser Uterschied ungleich 0, so richten sich die Ameisen in Richtung des Ameisenhügels aus (320, 320). Betrachtet man die Strecken in x- und y-Richtung, die sich ergeben wenn diese die Abstände zwischen Ameise und Ameisenhügel in beiden Koordinatenachsen darstellen, so ergeben diese zwei senkrecht zueinander ausgerichtete Vektoren. Der Winkel zwischen diesen beiden Vektoren lässt sich mithilfe des Tangens berechnen. Ist der Winkel bekannt, können sich die Ameisen zum Ameisehügel hin ausrichten und zu diesem zurückkehren.
 </p>
-
-
 
 <p><img src="images/ant.gif" alt="ant"></p>
 
@@ -507,5 +529,5 @@ Bei unserem Projekt sind wir schon recht weit gekommen. Das Szenario funktionier
 
 <ul>
 <li>Michael Kölling: *Einführung in Java mit Greenfoot*. Pearson Education Deutschland GmbH, 2010</li>
-<li>Download: Greenfoot AntsProject</li>
+<li>Download: Greenfoot AntsProject: <a href="https://www.greenfoot.org/book/">"Buch-Szenarien"</a></li>
 </ul>
