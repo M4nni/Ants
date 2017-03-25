@@ -31,6 +31,9 @@ Ein Informatik-Projekt von Robin Wagner und Finn Westphal
            </ul>
     <li><a href= "#Die AntHill-Klasse"> 2.4 Die AntHill-Klasse</a></li>
     <li><a href= "#Die Food-Klasse"> 2.5 Die Food-Klasse</a></li>
+        <ul>
+        <li><a href="#Code-Zusammenfassung Die Food-Klasse"> 2.5.1 Code-Zusammenfassung</a></li>
+        </ul>
     </ul>
     <li><a href= "#Stundenübersicht"> 3. Stundenübersicht</a></li>
 <li><a href= "#Quellen"> 4. Quellen</a></li>
