@@ -283,7 +283,7 @@ public void scenario1()
 }
 ```
  
- <h3>
+<h3>
 <a id= "Die Creature-Klasse"> 2.2 Die Creature-Klasse</a>
 </h3>
 
@@ -643,6 +643,86 @@ private int ants = 0;
 </h3>
 
 <p><img src="images/Food.png" alt="food"></p>
+
+<p>
+Bei der Programmierung der Food Klasse mussten wir zunächst ein Bild erstellen, da wir kein fertiges Bild haben wollten, sondern eines, das eine bestimmte Anzahl an Krümeln hat und normalverteilt sein soll, sodass es relativ echt aussieht. Mithilfe vom integer konnten wir die Krümel auf eine Anzahl von 100 Bildern festlegen, die Bildgröße konnten wir ebenfalls mit private int auf eine bestimmte quadratische Größe festlegen, in unserem Fall 30 Pixel. Wir haben zwei neue Farben unzwar limettengrün und dunkelgrün als eine neue Farbe festgelegt, welche das Futter annimmt. Zusätzlich haben wir die Variable i festgelegt bzw. in die Klasse hinzugefügt und einen test gemacht und diesen =0 gesetzt. Jetzt haben wir eine Grundlage für das Bild des Futterhaufens erstellt. Indem wir nun das Bild mithilfe von updateImage(); aktualisieren, haben wir zum Start des Szenarios neue Futterhaufen an den Plätzen, an denen wir sie zur Welt hinzugefügt haben. Die Ameisen können allerdings noch kein Futter aufnehmen bzw. ein paar Krümel fressen. Mit dem Befehl public void takeSomeCrumbs() lässt sich sagen, dass die Ameisen grundsätzlich Futter aufnehmen können. Die Krümel werden dann als Krümel -1 definiert. Wenn es 0 oder weniger Krümel gibt, soll der Futterhaufen aus der Welt entfernt werden (removeObject), ansonsten soll das Bild weiter aktualisiert werden. Danach erstellen wir ein neues Greenfoot-Bild und setzen i=0, wobei i immer kleiner als die Krümelanzahl sein muss, da der Krümelhaufen sonst aus der Welt entfernt wird. Das neu erstellte Bild bekommt nun mit integer festgelegt zufällige X- und Y-Koordinaten und mithilfe von setColor auch wieder die gleichen Farben limegrün und dunkelgrün. Schließlich kann man die Variable i als i+1 festlegen und das Bild erneut aktualisieren, sodass die einzelnen Krümel und Krümelverluste sichtbar werden können. Das Bild des Futterhaufens wird kleiner dadurch, dass man eine Koordinate festlegt, die genau die Hälfte des Futterhaufens also 30/2 = 15 Pixel groß ist und nach Gauss normalverteilt ist, sodass sich in der Mitte die meisten Krümel befinden. Wenn die Koordinate kleiner als 0 ist, wird sie wieder auf 0 zurückgesetzt. Wenn sie allerdings größer ist als die Bildgröße - 2 Einheiten, dann wird das Bild in der Größe um 2 kleiner. So kann das Futterbild mit der Zeit immer mehr an Größe verlieren, bis es schließlich ganz verschwindet. Wenn das Bild nicht verkleinert wird, wird die Koordinate einfach zurückgesetzt und der ganze Prozess geht von vorne los.
+</p>
+
+<h4>
+<a id="Code-Zusammenfassung Die Food-Klasse"> 2.5.1 Code-Zusammenfassung</a>
+</h4>
+
+```javascript
+import greenfoot.*;
+import java.util.Random;
+
+public class Food extends Actor
+{
+    public int Crumbs = 100;
+    private int ImageSize = 30;
+    private Color limegreen = new Color(50, 205, 50);
+    private Color darkgreen = new Color(0, 100, 0);
+    private int i;
+    private int test = 0;
+    
+    public Food()
+    {
+        updateImage();
+    }
+    
+    public void act()
+    {
+        
+    }
+    
+    public void takeSomeCrumbs()
+    {
+        Crumbs = Crumbs - 1;
+        if (Crumbs <= 0)
+        {
+            getWorld().removeObject(this);
+        }
+        else
+        {
+            updateImage();
+        }
+    }
+    
+    public void updateImage()
+    {
+        GreenfootImage image = new GreenfootImage(ImageSize, ImageSize);
+        i = 0;
+        while (i<Crumbs)
+        {
+            int x = randomCoord();
+            int y = randomCoord();
+            image.setColorAt(x, y, limegreen);
+            image.setColorAt(x + 1, y, darkgreen);
+            image.setColorAt(x, y + 1, darkgreen);
+            image.setColorAt(x + 1, y + 1, darkgreen);
+            i = i + 1;
+        }
+        setImage(image);
+    }
+    
+    private int randomCoord()
+    {
+        int coordinate = ImageSize / 2 + (int) (new Random().nextGaussian() * (ImageSize / 4));
+        if (coordinate < 0)
+        {
+            return 0;
+        }
+        if(coordinate > ImageSize - 2)
+        {
+            return ImageSize - 2;
+        }
+        else
+        {
+            return coordinate;
+        }
+    }
+}
+```
 
 <h3>
 <a id= "Stundenübersicht"> 3. Stundenübersicht</a>
