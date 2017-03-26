@@ -101,25 +101,25 @@ Anweisung
     <tr>
     <td>void</td>
     <td>super</td>
-    <th>(</th>
+    <td>(</td>
     <td>Abmessungen des Szenarios in Pixeln in x- und y-Richtung ein boolscher Literal (x, y)</td>
-    <th>)</th>
+    <td>)</td>
     <td>Definiert die Welt-Klasse als Hauptklasse des Szenarios und legt dessen Größe in Pixeln und durch einen weiteren booleschen Literal fest, dass die minimalen bzw. die maximalen Koordinaten des Szenarios Grenzen für die Objekte in der Welt darstellen</td>
     </tr>
     <tr>
     <td>void</td>
     <td>addObject()</td>
-    <th>(</th>
+    <td>(</td>
     <td>Koordianten des Obejektes, das hinzugfügt werden soll (int x, int y)</td>
-    <th>)</th>
+    <td>)</td>
     <td>fügt ein Objekt einer bestimmten Klasse in die Welt hinzu</td>
     </tr>
     <tr>
     <td>void</td>
     <td>act</td>
-    <th>(</th>
+    <td>(</td>
     <td></td>
-    <th>)</th>
+    <td>)</td>
     <td>wird ständig ausgeführt, solange der "Run"-Botton in Greenfoot betätigt wird</td>
     </tr>
     <tr>
