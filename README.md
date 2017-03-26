@@ -116,16 +116,6 @@ Anweisung
     <td>)</td>
     <td>Definiert die Welt-Klasse als Hauptklasse des Szenarios und legt dessen Größe in Pixeln und durch einen weiteren booleschen Literal fest, dass die minimalen bzw. die maximalen Koordinaten des Szenarios Grenzen für die Objekte in der Welt darstellen</td>
     </tr>
-</table>    
-<table>
-    <tr>
-    <th>Rückgabetyp</th>
-    <th>Methode</th>
-    <th>(</th>
-    <th>Parameter</th>
-    <th>)</th>
-    <th>Funktion</th>
-    </tr>
     <tr>
     <td>void</td>
     <td>addObject()</td>
