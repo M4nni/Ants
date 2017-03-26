@@ -89,6 +89,16 @@ Anweisung
 <a id="Verwendete Methoden"> 1.3 Verwendete Methoden</a>
 </h3>
 
+```javascript
+Anweisung
+{
+    Anweisung
+    {
+    	Anweisung
+    }
+}
+```
+
 <table>
     <tr>
     <th>Rückgabetyp</th>
@@ -196,16 +206,6 @@ Anweisung
     <td>führt Methoden in folgenden Methodenrumpf aus, solange die Bedingunsparameter erfüllt sind</td>
     </tr>
 </table>
-
-```javascript
-Anweisung
-{
-    Anweisung
-    {
-    	Anweisung
-    }
-}
-```
 
 <p>
 Wir programmieren unser Projekt "<i>Ants</i>" in der Programmierumgebung "Greenfoot", die auf der objektorientierten Programmiersprache Java basiert. Zunächst haben wir festgelegt, welche Größe, welches Format und welche Auflösung unsere Welt haben soll. Unsere Simulation soll über eine klassische Auflösung und ein klassisches Seitenverhälnis verfügen, damit es auf jedem Computer spielbar ist. Wir haben uns deswegen für das Seitenverhältis von 1/1 und eine Auflösung von 640 * 640 Pixeln entschieden. Diese Bildeigenschaften sind von den meisten aktuellen Displays umsetzbar.
