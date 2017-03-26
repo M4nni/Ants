@@ -141,7 +141,6 @@ Anweisung
     <td>ruft Methoden ab, die nur in der Weltklasse ausgeführt werden können</td>
     </tr>
     <tr>
-    <tr>
     <td>int</td>
     <td>getX</td>
     <td>(</td>
