@@ -89,6 +89,12 @@ Anweisung
 <a id="Verwendete Methoden"> 1.3 Verwendete Methoden</a>
 </h3>
 
+<table>
+    <tr>
+    <th>test</th>
+    </tr>
+</table>
+
 ```javascript
 Anweisung
 {
