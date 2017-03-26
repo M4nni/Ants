@@ -191,13 +191,15 @@ Anweisung
     <td>void</td>
     <td>while</td>
     <td>(</td>
-    <td>Bedingungsparameter
+    <td>Bedingungsparameter</td>
     <td>)</td>
     <td>führt Methoden in folgenden Methodenrumpf aus, solange die Bedingunsparameter erfüllt sind</td>
     </tr>
 </table>
 
+<p>
 Wir programmieren unser Projekt "<i>Ants</i>" in der Programmierumgebung "Greenfoot", die auf der objektorientierten Programmiersprache Java basiert. Zunächst haben wir festgelegt, welche Größe, welches Format und welche Auflösung unsere Welt haben soll. Unsere Simulation soll über eine klassische Auflösung und ein klassisches Seitenverhälnis verfügen, damit es auf jedem Computer spielbar ist. Wir haben uns deswegen für das Seitenverhältis von 1/1 und eine Auflösung von 640 * 640 Pixeln entschieden. Diese Bildeigenschaften sind von den meisten aktuellen Displays umsetzbar.
+</p>
 
 <h2>
 <a id="Umsetzung"> 2. Umsetzung</a>
