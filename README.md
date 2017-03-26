@@ -89,12 +89,6 @@ Anweisung
 <a id="Verwendete Methoden"> 1.3 Verwendete Methoden</a>
 </h3>
 
-<table>
-    <tr>
-    <th>test</th>
-    </tr>
-</table>
-
 ```javascript
 Anweisung
 {
@@ -121,6 +115,16 @@ Anweisung
     <td>Abmessungen des Szenarios in Pixeln in x- und y-Richtung ein boolscher Literal (x, y)</td>
     <td>)</td>
     <td>Definiert die Welt-Klasse als Hauptklasse des Szenarios und legt dessen Größe in Pixeln und durch einen weiteren booleschen Literal fest, dass die minimalen bzw. die maximalen Koordinaten des Szenarios Grenzen für die Objekte in der Welt darstellen</td>
+    </tr>
+</table>    
+<table>
+    <tr>
+    <th>Rückgabetyp</th>
+    <th>Methode</th>
+    <th>(</th>
+    <th>Parameter</th>
+    <th>)</th>
+    <th>Funktion</th>
     </tr>
     <tr>
     <td>void</td>
